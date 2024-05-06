@@ -6,11 +6,17 @@ import SubLayout from '../NewComponentCSS/SubLayout';
 import { login } from '../Data/data';
 import Post from '../Api/Post';
 import Modal from '../Components/Modal';
+import InfoModal from '../Components/InfoModal';
 
 
 const Login = () => {
     const [msisdn,setMsisdn] = useState('');
     const [openModal,setOpenModal]=useState(false);
+    const [billPending, setBillPending] = useState(false);
+    const [alreadysub, setAlreadysub] = useState(false);
+    const closeHandler = () => {
+      setBillPending(false);
+    };
    
     // console.log("msisdb",msisdn)
 
@@ -32,7 +38,8 @@ const Login = () => {
 
       if(e===1)
       {
-        alert("Billing is pending");
+        // alert("Billing is pending");
+        setBillPending(true);
         //billing pending
       }
       else if(e===2)
@@ -44,6 +51,7 @@ const Login = () => {
         
 
       }
+      
       else if(e===3)
       {
         // alert("Billing is pending");
@@ -51,9 +59,10 @@ const Login = () => {
         setOpenModal(true)
         // navigate("/subscribe");
       }
-      else{
+      else {
         //billing pending
-        alert("Billing is ");
+        // alert("Billing is ");
+        setBillPending(true);
       }
 
      }
@@ -130,6 +139,14 @@ and agree to be bound by the <strong>Bigcash </strong> service’s <br />
 
           
         </SubLayout>
+        {(billPending) && (
+          <InfoModal
+            subscriptionModal={false}
+            billModal={false}
+            billPending={billPending}
+            closeHandler={closeHandler}
+          />
+        )}
         <Modal open={openModal} closeHandler={closeModal} />
     </Layout>
   )

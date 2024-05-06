@@ -1,10 +1,8 @@
 //const pre=`http://localhost:2979/`;
 //const pre=`http://5.189.166.187:5551/BigcashPortalLive/`;
 // const pre=`http://5.189.166.187:5551/MtnBigcashPortalLive/`;
-const pre=`http://localhost:9765/`;
-
-
-
+// const pre=`http://localhost:9765/`;
+const pre=`http://zb.mtnbigcash.com/`;
 
 const sendServicesDataApi=`${pre}sendServicesData`;
 export{sendServicesDataApi};
