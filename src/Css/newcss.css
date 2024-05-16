@@ -1136,3 +1136,30 @@ img.t-icon2 {
     float: left;
     width: 100%;
 }
+
+
+/* new css for unsubscribe button  */
+.unsubscribe_container{
+    width: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.unsubscribe_btn{
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    font-family: 'Inter',sans-serif;
+    border: none;
+    outline: none;
+    font-weight: 400;
+}
+.foot_menu {
+    /* / padding-top: 2em; / */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  
+}

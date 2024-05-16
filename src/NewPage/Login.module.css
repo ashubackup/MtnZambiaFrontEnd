@@ -85,7 +85,9 @@
      justify-content: center;
      align-items: center;
      width: 100%;
-     padding: 1rem 2rem 1rem 2rem;
+     padding: 10px;
+     margin-top: 20px;
+
  }
  
  .form{
@@ -103,9 +105,9 @@
      border: none;
      outline: none;
      background: transparent;
-     height: 4.5rem;
+     height: 55px;
      color: black;
-     font-size: 0.95rem;
+     font-size: 16px;
      font-family: 'Inter',sans-serif;
      /* font-weight:500; */
  }
@@ -115,7 +117,7 @@
  }
  
  .input_group{
-     width: 80%;
+     width: 100%;
      background-color: #eff2f5;
      display: flex;
      justify-content: flex-start;
@@ -127,7 +129,7 @@
  
  .country_code{
      color: grey;
-     font-size: 0.95rem;
+     font-size: 16px;
      font-weight: 800;
  }
  

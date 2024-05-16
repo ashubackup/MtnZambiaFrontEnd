@@ -19,6 +19,8 @@ import Login from "../NewPage/Login";
 import Subscription from "../NewPage/Subscription";
 import Welcome from "../NewPage/Welcome";
 import BillingPending from "../Pages/BillingPending";
+import NotifyPage from "../NewPage/NotifyPage.js";
+import Header from "../Pages/Header.js";
 
 const Routing = () => {
   return (
@@ -48,6 +50,8 @@ const Routing = () => {
           <Route path="/login" element={<Login />} exact={true} />
           <Route path="/subscribe" element={<Subscription />} exact={true} />
           <Route path="/welcome" element={<Welcome />} exact={true} />
+          <Route path="/notify" element={<NotifyPage />} exact={true} />
+          <Route path="/headers" element={<Header />} exact={true} />
         </Routes>
       </BrowserRouter>
     </>

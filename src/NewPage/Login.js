@@ -9,14 +9,8 @@ import Modal from "../Components/Modal";
 import InfoModal from "../Components/InfoModal";
 
 const Login = () => {
-  const location = useLocation();
   const [msisdn, setMsisdn] = useState("");
 
-  useEffect(() => {
-    const msisdn_from_header = location?.state?.msisdn;
-    console.log(location, "location...state...");
-    setMsisdn(msisdn_from_header);
-  }, [location]);
   const [openModal, setOpenModal] = useState(false);
   const [billPending, setBillPending] = useState(false);
   const [alreadysub, setAlreadysub] = useState(false);
@@ -80,6 +74,13 @@ const Login = () => {
               <div
                 className={classes.tab_2}
                 onClick={() => navigate("/subscribe")}
+                // onClick={() =>
+                //   navigate("/subscribe", {
+                //     state: {
+                //       msisdn: headerMsisdn,
+                //     },
+                //   })
+                // }
               >
                 <p className={classes.tab}>Subscribe</p>
               </div>
@@ -104,7 +105,7 @@ const Login = () => {
 
               <button
                 onClick={() => {
-                  callonBackend();
+                  callonBackend(msisdn);
                 }}
                 type="button"
                 className={classes.subscribe_btn}

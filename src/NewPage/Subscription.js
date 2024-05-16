@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Layout from "../NewComponentCSS/Layout";
 import SubLayout from "../NewComponentCSS/SubLayout";
 import classes from "./Subscription.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import Post from "../Api/Post";
 import { subreq } from "../Data/data";
@@ -10,6 +10,7 @@ import InfoModal from "../Components/InfoModal";
 
 const Subscription = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [msisdn, setMsisdn] = useState("");
   const [options, setOptions] = useState([
     { value: "Daily", label: "Daily" },
@@ -20,7 +21,13 @@ const Subscription = () => {
   const [margin, setMargin] = useState(false);
   const [subscriptionModal, setSubscriptionModal] = useState(false);
   const [billModal, setBillModal] = useState(false);
-  const [alreadysub,setAlreadysub] = useState(false);
+  const [alreadysub, setAlreadysub] = useState(false);
+
+  useEffect(() => {
+    const msisdn_from_header = location?.state?.msisdn;
+    console.log(msisdn_from_header, "location...state...");
+    setMsisdn(msisdn_from_header);
+  }, [location]);
 
   const closeHandler = () => {
     setSubscriptionModal(false);
@@ -48,7 +55,13 @@ const Subscription = () => {
   const handleResposne = (e) => {
     if (e === 0) {
       //message
-      setSubscriptionModal(true);
+      // setSubscriptionModal(true);
+      navigate("/notify", {
+        state: {
+          showMessage: true,
+          msisdn: msisdn,
+        },
+      });
     } else if (e === 1) {
       //already subscribe
       navigate("/homepage");
@@ -86,7 +99,7 @@ const Subscription = () => {
           <div className={classes.form_container}>
             <form
               className={classes.form}
-                //  onSubmit={submitHandler}
+              //  onSubmit={submitHandler}
             >
               <div className={classes.input_group}>
                 <span className={classes.country_code}>+260</span>
