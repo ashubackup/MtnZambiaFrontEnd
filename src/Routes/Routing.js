@@ -21,6 +21,8 @@ import Welcome from "../NewPage/Welcome";
 import BillingPending from "../Pages/BillingPending";
 import NotifyPage from "../NewPage/NotifyPage.js";
 import Header from "../Pages/Header.js";
+import Auth from "../NewComponentCSS/Auth.js";
+import UnSubSuccessPage from "../NewPage/UnSubSuccessPage.js";
 
 const Routing = () => {
   return (
@@ -30,12 +32,60 @@ const Routing = () => {
           {/* <Route path="/" element={<Logo/>} exact={true}></Route> */}
           {/* <Route path="/" element={<Intro/>} exact={true}></Route> */}
           <Route path="/" element={<Intro12 />} exact={true} />
-          <Route path="/home" element={<Home />} exact={true}></Route>
-          <Route path="/score" element={<Score />} exact={true}></Route>
-          <Route path="/leader" element={<Leaderboard />} exact={true}></Route>
-          <Route path="/prize" element={<Prize />} exact={true}></Route>
-          <Route path="/terms" element={<Terms />} exact={true}></Route>
-          <Route path="/faq" element={<Faq />} exact={true}></Route>
+          <Route
+            path="/home"
+            element={
+              <Auth>
+                <Home />
+              </Auth>
+            }
+            exact={true}
+          ></Route>
+          <Route
+            path="/score"
+            element={
+              <Auth>
+                <Score />
+              </Auth>
+            }
+            exact={true}
+          ></Route>
+          <Route
+            path="/leader"
+            element={
+              <Auth>
+                <Leaderboard />
+              </Auth>
+            }
+            exact={true}
+          ></Route>
+          <Route
+            path="/prize"
+            element={
+              <Auth>
+                <Prize />
+              </Auth>
+            }
+            exact={true}
+          ></Route>
+          <Route
+            path="/terms"
+            element={
+              <Auth>
+                <Terms />
+              </Auth>
+            }
+            exact={true}
+          ></Route>
+          <Route
+            path="/faq"
+            element={
+              <Auth>
+                <Faq />
+              </Auth>
+            }
+            exact={true}
+          ></Route>
           <Route path="*" element={<PageNotFound />} exact={true}></Route>
           <Route path="/error" element={<ErrorPage />} exact={true}></Route>
           <Route
@@ -43,15 +93,48 @@ const Routing = () => {
             element={<BillingPending />}
             exact={true}
           ></Route>
-          <Route path="/homepage" element={<Homepage />} exact={true} />
-          <Route path="/profile" element={<Gamerprofile />} exact={true} />
-          <Route path="/checkout" element={<Checkout />} exact={true} />
-          <Route path="/test" element={<Test />} exact={true} />
+          <Route
+            path="/homepage"
+            element={
+              <Auth>
+                <Homepage />
+              </Auth>
+            }
+            exact={true}
+          />
+          <Route
+            path="/profile"
+            element={
+              <Auth>
+                <Gamerprofile />
+              </Auth>
+            }
+            exact={true}
+          />
+          <Route
+            path="/checkout"
+            element={
+              <Auth>
+                <Checkout />
+              </Auth>
+            }
+            exact={true}
+          />
+          <Route
+            path="/test"
+            element={
+              <Auth>
+                <Test />
+              </Auth>
+            }
+            exact={true}
+          />
           <Route path="/login" element={<Login />} exact={true} />
           <Route path="/subscribe" element={<Subscription />} exact={true} />
           <Route path="/welcome" element={<Welcome />} exact={true} />
           <Route path="/notify" element={<NotifyPage />} exact={true} />
           <Route path="/headers" element={<Header />} exact={true} />
+          <Route path="/unsubscribe/success" element={<UnSubSuccessPage />}exact={true}/>
         </Routes>
       </BrowserRouter>
     </>

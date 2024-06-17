@@ -1,7 +1,8 @@
 
 .main{
-    /* padding: 2rem; */
-    /* position: absolute; */
+    /* / padding: 2rem; / */
+    /* / position: absolute; / */
+    position: absolute;
     top: 3rem;
     width: 100%;
     display: flex;
@@ -50,7 +51,7 @@
      display: grid;
      align-items: center;
      grid-template-columns: 1fr 1fr;
-     /* width: 90%; */
+     /* / width: 90%; / */
      width: 20rem;
      border-bottom: 0.1rem solid #E92230;
      cursor: pointer;
@@ -59,14 +60,14 @@
      display: flex;
      justify-content: flex-start;
      align-items: center;
-     /* padding: 0 1rem 0 1rem; */
+     /* / padding: 0 1rem 0 1rem; / */
      height: 100%;
  }
  .tab_2{
      display: flex;
      justify-content: flex-end;
      align-items: center;
-     /* padding: 1rem 1rem 1rem 1rem; */
+     /* / padding: 1rem 1rem 1rem 1rem; / */
      height: 100%;
      border-bottom: 0.2rem solid #E92230;
  }
@@ -101,12 +102,12 @@
  
  .form{
      display: flex;
-     /* justify-content: center; */
+     /* / justify-content: center; / */
      align-items: center;
      width: 100%;
      flex-direction: column;
      gap: 2rem;
-     /* height: 20rem; */
+     /* / height: 20rem; / */
  }
  
  .input{
@@ -118,7 +119,7 @@
      color: black;
      font-size: 16px;
      font-family: 'Inter',sans-serif;
-     /* font-weight:500; */
+     /* / font-weight:500; / */
  }
  
  .input::placeholder{
@@ -143,8 +144,8 @@
  }
  
  .selector{
-     /* width: 25rem; */
-     /* height: 3rem; */
+     /* / width: 25rem; / */
+     /* / height: 3rem; / */
      height: fit-content;
      gap: 0.5rem;
      width: 90%;
@@ -154,9 +155,9 @@
  
  
  .subscribe_btn{
-     /* margin-top: 8rem; */
+     /* / margin-top: 8rem; / */
      width: 90%;
-     /* width: 27rem; */
+     /* / width: 27rem; / */
      display: flex;
      justify-content:center;
      align-items: center;
@@ -165,9 +166,10 @@
      font-family: 'Inter',sans-serif;
      font-weight: 900;
      color: white;
-     background-color: #E92230;
+     /* background-color: #E92230; */
+     background-color: #00263a;
      text-transform: uppercase;
-     /* letter-spacing: 0.2rem; */
+     /* / letter-spacing: 0.2rem; / */
      border: none;
      outline: none;
      border-radius: 1rem;
@@ -177,7 +179,7 @@
  .subscribe_btn_down{
     margin-top: 8rem;
     width: 90%;
-    /* width: 27rem; */
+    /* / width: 27rem; / */
     display: flex;
     justify-content:center;
     align-items: center;
@@ -186,9 +188,10 @@
     font-family: 'Inter',sans-serif;
     font-weight: 900;
     color: white;
-    background-color: #E92230;
+    /* background-color: #E92230; */
+    background-color: #00263a;
     text-transform: uppercase;
-    /* letter-spacing: 0.2rem; */
+    /* / letter-spacing: 0.2rem; / */
     border: none;
     outline: none;
     border-radius: 1rem;
@@ -198,9 +201,8 @@
  
  
  .footer_container{
-     padding: 2rem;
-     /* position: absolute; */
-     bottom: 3rem;
+    position: absolute;
+     bottom: 0px;
      bottom:1.5rem;
      display: flex;
      justify-content: center;
@@ -220,19 +222,43 @@
      justify-content: center;
      align-items: center;
      flex-direction: column;
-     /* gap: 1rem; */
+     /* / gap: 1rem; / */
  }
  .footer_text{
-     /* padding: 1rem 1rem 1rem 1rem; */
-     /* font-size: 1.4rem; */
+     /* / padding: 1rem 1rem 1rem 1rem; / */
+     /* / font-size: 1.4rem; / */
      font-family: 'Inter',sans-serif;
      color: grey;
      text-align: center;
  }
  
- @media screen and (min-height:700px) {
-     .footer_container{
-         /* position: absolute; */
-         /* bottom: 2rem; */
-     }
+ .radio_btns{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 30px 0 30px;
+ }
+
+ .radio_btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+ }
+
+ .label{
+    margin: 0;
+    padding-top: 4px;
+    font-size: 16px;
+    color: #333;
+    font-family: 'Inter',sans-serif;
+ }
+
+ .radio{
+    width: 15px;
+    height: 15px;
  }

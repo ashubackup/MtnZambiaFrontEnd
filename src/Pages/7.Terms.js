@@ -35,7 +35,7 @@ const Terms = () => {
     let request={"type":"terms","serviceId":serviceId};
     let promise=Post(sendTermsApi,request);
     promise.then(e=>{
-       console.log("e--- ",e);
+      //  console.log("e--- ",e);
       handleResponse(e);
     })
   }
@@ -47,7 +47,7 @@ const Terms = () => {
       navigate('/error');
     } else {
       if (e.response && e.response.data) {
-        console.log('terms ' + e.response.data);
+        // console.log('terms ' + e.response.data);
         setData(e.response.data);
         setLoader('none');
       } else {
@@ -94,7 +94,7 @@ const Terms = () => {
         <div className="cus-header">
           <div className="col-md-6 col-xs-6">
             <div className="page-icon">
-              <img alt="logo" src={score_icon} /> T&C
+              {/* <img alt="logo" src={score_icon} /> T&C */}
             </div>
           </div>
           <div className="col-md-6 col-xs-6">

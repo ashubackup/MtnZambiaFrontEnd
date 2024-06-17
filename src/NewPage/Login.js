@@ -7,15 +7,26 @@ import { login } from "../Data/data";
 import Post from "../Api/Post";
 import Modal from "../Components/Modal";
 import InfoModal from "../Components/InfoModal";
+import FailedModal from "../Components/FailedModal";
 
 const Login = () => {
   const [msisdn, setMsisdn] = useState("");
 
+  useEffect(() => {
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.documentElement.style.overflow = '';
+    };
+  }, []);
+
   const [openModal, setOpenModal] = useState(false);
   const [billPending, setBillPending] = useState(false);
   const [alreadysub, setAlreadysub] = useState(false);
+  const [open, setOpen] = useState(false);
   const closeHandler = () => {
     setBillPending(false);
+    setOpen(false);
   };
 
   // console.log("msisdb",msisdn)
@@ -23,6 +34,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   const callonBackend = () => {
+    if (!msisdn) {
+      setOpen(true);
+      return;
+    }
+    if (msisdn.trim().length == 0) {
+      setOpen(true);
+      return;
+    }
     let request = { ani: msisdn };
 
     let promise = Post(login, request);
@@ -63,7 +82,7 @@ const Login = () => {
       <SubLayout>
         <div className={classes.main}>
           <div className={classes.logo}>
-            <img src="/assets/logo.png" alt="" />
+            <img src="/assets/logo.png" alt="mtn" />
           </div>
 
           <div className={classes.tabs_container}>
@@ -114,16 +133,16 @@ const Login = () => {
               </button>
             </form>
           </div>
-          <div className={classes.footer_container}>
-            <div className={classes.footer_sub_container}>
-              <img src="/assets/mtn.png" alt="mtn" className={classes.footer} />
-              <p className={classes.footer_text}>
-                By clicking <strong>subscribe</strong> , you have read,
-                understood and agree to be bound by the{" "}
-                <strong>Bigcash </strong> service’s <br />
-                <strong> Terms & Conditions and FAQ’s </strong>
-              </p>
-            </div>
+        </div>
+        <div className={classes.footer_container}>
+          <div className={classes.footer_sub_container}>
+            <img src="/assets/mtn.png" alt="mtn" className={classes.footer} />
+            <p className={classes.footer_text}>
+              By clicking <strong>subscribe</strong> , you have read, understood
+              and agree to be bound by the <strong>Bigcash </strong> service’s{" "}
+              <br />
+              <strong> Terms & Conditions and FAQ’s </strong>
+            </p>
           </div>
         </div>
       </SubLayout>
@@ -136,6 +155,13 @@ const Login = () => {
         />
       )}
       <Modal open={openModal} closeHandler={closeModal} />
+      {open && (
+        <FailedModal
+          open={open}
+          text="Please Enter the Number"
+          closeHandler={closeHandler}
+        />
+      )}
     </Layout>
   );
 };

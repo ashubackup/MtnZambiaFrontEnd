@@ -22,10 +22,20 @@ const Intro12 = () => {
       <Layout>
         <div className={classes.main}>
           <div className={classes.image}>
-            <img src="/assets/logo.png" alt="" />
+            <img
+              src="/assets/logo.png"
+              alt=""
+              style={{ width: "150px", height: "150px", objectFit: "contain" }}
+            />
+            {/* {/ <img src="/assets/mtn.png" alt="mtn" style={{width:'150px',height:'150px',objectFit:'contain'}} /> /} */}
           </div>
 
           <Lottie animationData={loader} className={classes.animation} />
+          <div className={classes.footer_container}>
+            <div className={classes.footer_sub_container}>
+              <img src="/assets/mtn.png" alt="mtn" className={classes.footer} />
+            </div>
+          </div>
         </div>
       </Layout>
     </>

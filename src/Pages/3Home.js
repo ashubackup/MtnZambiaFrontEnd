@@ -133,7 +133,7 @@ const Home = () => {
                       <span className="cus-game-span"
                          style={{background:`${colorTwo}`}}>
                         {" "}
-                        <img alt="logo" src={mediaplay} />
+                        {/* <img alt="logo" src={mediaplay} /> */}
                         <span
                           className="text-unselect cursor-pointer"
                           onClick={() => {

@@ -42,6 +42,7 @@ const Prize = () => {
   //Handling Data coming from Prize Api
   const handlePrizeDataResponse = (e) => {
 
+    
     if(e==="Network Error")
     {
       navigate("/error"); 
@@ -122,40 +123,47 @@ const Prize = () => {
             Winner Prizes
           </span>
           <p className="big-font">
-            R1,000 is the Grand Cash Prize! <br />
+            ZMW 500 is the Grand Cash Prize! <br />
             Enjoy Daily Airtime Rewards!
           </p>
 
 
           <div className="score-area-table">
             <div className="blue-row"
+            style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'15px 20px 15px 20px'}}
               >
                 {/* style={{backgroundColor:`${colorTwo}`}} */}
-              <div className="col-md-6 col-xs-6">Daily Airtime </div>
-              <div className="col-md-6 col-xs-6">Monthly Cash </div>
+              {/* <div className="col-md-6 col-xs-6">Sr No. </div> */}
+              {/* <div className="col-md-6 col-xs-6">Daily Airtime </div> */}
+              <div className="" style={{fontSize:'16px'}}>Sr No. </div>
+              <div className="" style={{fontSize:'16px'}}>Daily Airtime </div>
+              <div className="" style={{fontSize:'16px'}}>Monthly Cash </div>
             </div>
             <div className="white-bg-shadow bg-white padding-low">
             {/* style={{background:`${color}`}} */}
               <div className="rating-table">
-                <div className="col-md-6 border-winner col-xs-6">
+                <div className="col-md-8 border-winner col-xs-8" style={{textWrap:'nowrap'}}>
                   {airtimePrize.length > 0 &&
                     airtimePrize.map((value, index) => {
                       return (
-                        <div key={index}>
-                          <div className="col-md-5 col-xs-5"> {index + 1}</div>
-                          <div className="col-md-7 col-xs-7">R{value.prize}</div>
+                        <div key={index} style={{paddingRight: '14px',
+                          paddingLeft: '4cap'}}>
+                          <div className="col-md-5 col-xs-5">{index + 1}</div>
+                          {/* <div className="">{index + 1}</div> */}
+                          <div className="col-md-7 col-xs-7">{`     `}K {value.prize}</div>
+                          {/* <div className="">ZMW {value.prize}</div> */}
                         </div>
                       );
                     })}
                 </div>
 
-                <div className="col-md-6 border-winner col-xs-6">
+                <div className="col-md-4 border-winner col-xs-4" style={{textWrap:"nowrap"}}>
                   {cashPrize.length > 0 &&
                     cashPrize.map((value, index) => {
                       return (
                         <div key={index}>
-                          <div className="col-md-5 col-xs-5">{index + 1}</div>
-                          <div className="col-md-7 col-xs-7">R{value.prize}</div>
+                          {/* <div className="col-md-5 col-xs-5">{index + 1}</div> */}
+                          <div className="col-md-7 col-xs-7">K {value.prize}</div>
                         </div>
                       );
                     })}

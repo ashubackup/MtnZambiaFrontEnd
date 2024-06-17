@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactGA from "react-ga";
-import { google_key } from "../Data/data";
-import home_icon_top from "../Images/home-icon-top.png";
+//import { google_key } from "../Data/data";
+//import home_icon_top from "../Images/home-icon-top.png";
 import menu_icon from "../Images/menu-icon.svg";
-import mediaplay from "../Images/mediaplay.svg";
-import dots from "../Images/dots.svg";
+//import mediaplay from "../Images/mediaplay.svg";
+//import dots from "../Images/dots.svg";
 import Footer from "../Components/Footer";
 import Menu from "../Components/Menu";
 import { sendServicesDataApi } from "../Data/data";
@@ -17,7 +17,7 @@ import play from "../NewImages/play.png";
 import alllogo from "../Images/home-icon-top.png";
 // import remote from "../NewImages/remote.png";
 import remote from "../NewImages/remo4.png";
-import newimg from "../NewImages/imagenew.png";
+//import newimg from "../NewImages/imagenew.png";
 import "../Css/newcss.css";
 
 export const Homepage = () => {
@@ -29,7 +29,7 @@ export const Homepage = () => {
 
   //Calling for Games Data
   useEffect(() => {
-   // checkColor();
+    // checkColor();
     getGamesData();
     ReactGA.pageview(window.location.pathname);
     // eslint-disable-next-line
@@ -60,23 +60,22 @@ export const Homepage = () => {
 
   //Hook to store color
   //const [color, setColor] = useState("");
- // const [colorTwo, setColorTwo] = useState("");
+  // const [colorTwo, setColorTwo] = useState("");
 
   //Method to Get Color according to serviceId
-  const checkColor = () => {
-   // let serviceId = localStorage.getItem("serviceId");
-
-    // if (serviceId === "11") {
-    //   setColor("black");
-    //   setColorTwo("#FFCC00");
-    // } else if (serviceId === "1") {
-    //   setColor("#00263a");
-    //   setColorTwo("#5ec3e7");
-    // } else {
-    //   setColor("#00263a");
-    //   setColorTwo("#5ec3e7");
-    // }
-  };
+  // const checkColor = () => {
+  //   // let serviceId = localStorage.getItem("serviceId");
+  //   // if (serviceId === "11") {
+  //   //   setColor("black");
+  //   //   setColorTwo("#FFCC00");
+  //   // } else if (serviceId === "1") {
+  //   //   setColor("#00263a");
+  //   //   setColorTwo("#5ec3e7");
+  //   // } else {
+  //   //   setColor("#00263a");
+  //   //   setColorTwo("#5ec3e7");
+  //   // }
+  // };
 
   return (
     <>
@@ -93,10 +92,8 @@ export const Homepage = () => {
         <div className="cus-header">
           <div className="col-md-6 col-xs-6">
             <div className="page-icon">
-              <img src={alllogo} /> 
-               <Link to={"/homepage"} >
-                Home
-              </Link> 
+              <img src={alllogo}  alt="allogo"/>
+              <Link to={"/homepage"}>Home</Link>
             </div>
           </div>
           <div className="col-md-6 col-xs-6">
@@ -113,67 +110,71 @@ export const Homepage = () => {
         </div>
         <div className="play-compete-c">
           <div className="play-inner-Win">Play Compete Win Big</div>
-          <div className="play-inner-img-w">
-            <img src={remote} />
+          <div className="play-inner-img-w" style={{display:'none'}}>
+            <img src={remote} alt="remote"/>
           </div>
         </div>
         <div className="container-area">
           <div className="game-area">
-            {gamesData && gamesData.map((item) => {
-              return (
-                <>
-                  <div className="win-inner" key={item.id}>
-                    <div className="win-inner-img">
-                      <img src={item.imageUrl} />
-
-                    </div>
-                    <div className="custom-fix-image">
-                      <img src={newimg}/>
-                    </div>
-                    <div className="win-inner-c-r">
-                      <h3>{item.game}</h3>
-                      <p className="reating">
-                        <span>
-                          <img src={onestar} />
-                        </span>
-                        <span>
-                          <img src={onestar} />
-                        </span>
-                        <span>
-                          <img src={onestar} />
-                        </span>
-                        <span>
-                          <img src={onestar} />
-                        </span>
-                        <span>
-                          <img src={onestar} />
-                        </span>
-                      </p>
-                      <p>Earns Rewards and ...</p>
-                    </div>
-                    <div className="win-play-b">
-                      {/* <Link to={item.gameUrl}>
+            {gamesData &&
+              gamesData.map((item, i) => {
+                return (
+                  <>
+                    <div className="win-inner" key={i}>
+                      <div className="win-inner-img">
+                        <img src={item.imageUrl} alt="imageurl" />
+                      </div>
+                      <div className="custom-fix-image">
+                        {/* <img src={newimg} /> */}
+                      </div>
+                      <div className="win-inner-c-r">
+                        <h3>{item.game}</h3>
+                        <p className="reating">
+                          <span>
+                            <img src={onestar} alt="onestar" />
+                          </span>
+                          <span>
+                            <img src={onestar} alt="onestar"/>
+                          </span>
+                          <span>
+                            <img src={onestar} alt="onestar"/>
+                          </span>
+                          <span>
+                            <img src={onestar}alt="onestar" />
+                          </span>
+                          <span>
+                            <img src={onestar} alt="onestar" />
+                          </span>
+                        </p>
+                        <p>Earns Rewards and ...</p>
+                      </div>
+                      <div className="win-play-b">
+                        {/* <Link to={item.gameUrl}>
                     <img src={play} />
                     
                   </Link> */}
 
-                      <Link to={""}>
-                        <img
-                          src={play}
-                          onClick={() => {
-                            let ani = localStorage.getItem("ani");
-                            let gameId = item.gameid;
-                            let serviceId = localStorage.getItem("serviceId");
-                            console.log("url---",`${item.gameUrlLive}?ani=${ani}&gameId=${serviceId}&serviceId=${gameId}`);
-                            window.location.href = `${item.gameUrlLive}?ani=${ani}&gameId=${serviceId}&serviceId=${gameId}`;
-                          }}
-                        />
-                      </Link>
+                        <Link to={""}>
+                          <img
+                            src={play}
+                            onClick={() => {
+                              let ani = localStorage.getItem("ani");
+                              let gameId = item.gameid;
+                              let serviceId = localStorage.getItem("serviceId");
+                              // console.log(
+                              //   "url---",
+                              //   `${item.gameUrlLive}?ani=${ani}&gameId=${serviceId}&serviceId=${gameId}`
+                              // );
+                              window.location.href = `${item.gameUrlLive}?ani=${ani}&gameId=${serviceId}&serviceId=${gameId}`;
+                            }}
+                            alt="play"
+                          />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </>
-              );
-            })}
+                  </>
+                );
+              })}
           </div>
           <Footer
             one="active"

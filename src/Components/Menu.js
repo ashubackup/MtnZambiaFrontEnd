@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import arrow_left from "../Images/arrow-left.svg";
 import bigcash_logo from "../Images/bigcash-logo.png";
-import logob from "../NewImages/Hulu-Logo.png";
-import { toast } from "react-toastify";
+// import logob from "../NewImages/Hulu-Logo.png";
+// import { toast } from "react-toastify";
 import Loader from "./Loader";
 import axios from "axios";
 import { unsubApi } from "../Data/data";
+import FailedModal from "./FailedModal";
 
 const Menu = (prop) => {
   //To Load on Start
@@ -18,6 +19,8 @@ const Menu = (prop) => {
   const [colorTwo, setColorTwo] = useState("");
   const [loader, setLoader] = useState("none");
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState("");
 
   //Method to Get Color according to serviceId
   const checkColor = () => {
@@ -39,31 +42,44 @@ const Menu = (prop) => {
 
   const unsubscribeHandler = async () => {
     try {
-      // setLoader("block");
+      setLoader("block");
       const ani = localStorage.getItem("ani");
       const response = await axios.get(`${unsubApi}?msisdn=${ani}`);
-      console.log(response,'response...')
+      console.log(response, "response...");
 
       if (response?.data == "Success") {
         localStorage.removeItem("ani");
         localStorage.removeItem("serviceId");
         setLoader("none");
-        console.log("execute successsd")
+        console.log("execute successsd");
 
-        navigate("/subscribe");
+        navigate("/unsubscribe/success", {
+          state: {
+            show: true,
+          },
+        });
+
+        // navigate("/subscribe");
       } else {
-        console.log("execute failed")
-        toast.error("Failed to Unsubscribe!");
+        console.log("execute failed");
         setLoader("none");
+        setOpen(true);
+        setText("Failed To Unsubscribe!");
       }
     } catch (error) {
-      toast.error(
+      setOpen(true);
+      setText(
         error?.response?.data?.message ||
           error?.response?.message ||
           error?.message ||
           error
       );
     }
+  };
+
+  const closeHandler = () => {
+    setOpen(false);
+    setText("");
   };
 
   return (
@@ -84,14 +100,14 @@ const Menu = (prop) => {
           </span>
         </div>
         <div className="menu_inner">
-          {/* {/ style={{backgroundColor:`${colorTwo}`}} /} */}
+          {/* {/ {/ style={{backgroundColor:`${colorTwo}`}} /} /} */}
           <div className="menu_logo text-center">
             <a href="">
               <img src={bigcash_logo} alt="Logo" className="img-responsive" />
             </a>
           </div>
           <br />
-         
+
           <ul className="nav navbar-nav">
             <li className={prop.one}>
               <Link to="/homepage">
@@ -256,6 +272,9 @@ const Menu = (prop) => {
           </div>
         </div>
       </div>
+      {open && (
+        <FailedModal open={open} closeHandler={closeHandler} text={text} />
+      )}
     </>
   );
 };

@@ -211,6 +211,7 @@ a:hover {
     padding: 4px;
     font-weight: 700;
     font-size: 15px;
+    padding-left: 10px;
 }
 .rating-btn a {
     text-align: center;
@@ -652,7 +653,9 @@ ul.nav.navbar-nav li {
 .play-inner-Win {
     font-size: 44px;
     line-height: 50px;
+    width: 100%;
     text-align: center;
+    text-wrap: nowrap;
     font-weight: bold;
     color: #000;
 }
@@ -944,7 +947,10 @@ img.t-icon2 {
 
     .cus-header {
         margin: 15px 0;
-        font-size: 20px;}
+        font-size: 20px;
+        position: relative;
+        z-index: 2000;
+    }
         .intro-logo {
         margin-top: 40%;
     }
@@ -1035,7 +1041,7 @@ img.t-icon2 {
         margin-top: 24px;
     }
     .play-inner-Win {
-        font-size: 40px;
+        font-size: 34px;
     }
     .play-inner-img-w img {
         max-width: 183px;

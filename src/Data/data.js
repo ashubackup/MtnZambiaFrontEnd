@@ -1,4 +1,4 @@
-//const pre=`http://localhost:2979/`;
+// const pre=`http://localhost:2979/`;
 // const pre=`http://localhost:9765/`;
 // const pre=`http://5.189.166.187:5551/MtnBigcashPortalLive/`;
 // const headerApi = `http://5.189.166.187:5551/BigcashPortalLive/`;
@@ -24,7 +24,7 @@ export { sendTermsApi };
 const bigcashImgUrl = `https://www.gameninja.in/html/BigcashPortalData/BigCash.png`;
 export { bigcashImgUrl };
 
-const google_key = `G-6243J8J93N`;
+const google_key = `G-6243J8J93N`; 
 export { google_key };
 
 const login = `${pre}login`;

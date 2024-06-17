@@ -68,8 +68,8 @@ const Leaderboard = () => {
   const [loader, setLoader] = useState("block");
 
   //Hook to Store Color
-  const [color, setColor] = useState("");
-  const [colorTwo, setColorTwo] = useState("");
+  // const [color, setColor] = useState("");
+  // const [colorTwo, setColorTwo] = useState("");
 
   //Method to Get Color according to serviceId
   const checkColor = () => {

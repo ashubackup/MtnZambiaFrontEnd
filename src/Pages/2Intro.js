@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import all_logo from "../Images/all-logo.png";
 // import hand_shake from "../Images/hand-shake.png";
 import alllogo from "../NewImages/Hulu-Logo.png";
-import handshake from "../NewImages/hand-shake.png";
+// import handshake from "../NewImages/hand-shake.png";
 import '../Css/newcss.css';
 
 const Intro = () => {
@@ -102,7 +102,7 @@ const Intro = () => {
     <div className="container fist-p" style={{ height: "100vh" }}>
       <div className="intro-screen">
         <div className="intro-logo">
-          <img alt="logo" src={alllogo} />
+        <img src="/assets/mtn.png" alt="mtn" style={{width:'150px',height:'150px',objectFit:'contain'}} />
         </div>
         <div className="intro-content">
           {/* <img alt="logo" src={handshake} /> */}

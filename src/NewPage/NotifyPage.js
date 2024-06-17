@@ -1,4 +1,4 @@
-import React, { useEffect ,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../NewComponentCSS/Layout";
 import SubLayout from "../NewComponentCSS/SubLayout";
 import classes from "./NotifyPage.module.css";
@@ -14,9 +14,9 @@ const NotifyPage = () => {
   const showMessage = location?.state?.showMessage;
   const msisdn = location?.state?.msisdn;
 
-  if (!showMessage || !msisdn) {
-    navigate("/subscribe");
-  }
+  // if (!showMessage || !msisdn) {
+  //   navigate("/subscribe");
+  // }
 
   const callonBackend = () => {
     let request = { ani: msisdn };
@@ -42,15 +42,22 @@ const NotifyPage = () => {
   };
 
   useEffect(() => {
-    callonBackend();
-
-    const intervalId = setInterval(() => {
-      if (!document.hidden) {
+    if (msisdn) {
+      setTimeout(() => {
         callonBackend();
-      }
-    }, 10000);
-    return () => clearInterval(intervalId);
-  }, []);
+      }, 10000);
+  
+      const intervalId = setInterval(() => {
+        if (!document.hidden) {
+          callonBackend();
+        }
+      }, 10000);
+      return () => clearInterval(intervalId);
+    }
+    else{
+      navigate("/subscribe");
+    }
+  }, [msisdn]);
 
   return (
     <Layout>
@@ -62,7 +69,7 @@ const NotifyPage = () => {
           <div className={classes.message_box_container}>
             <div className={classes.message_box}>
               <p className={classes.message}>
-                Your subscription is in progress you will notify shortly
+              Your subscription is in progress you will be redirected shortly.
               </p>
             </div>
           </div>

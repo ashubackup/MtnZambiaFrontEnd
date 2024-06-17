@@ -378,6 +378,8 @@ a.active {
 }
 .my-terms-div{
     max-height: 90vh;
+    margin-top: 20px;
+    padding: 20px 0 20px 0;
     overflow-y: scroll;
 }
 
@@ -523,7 +525,10 @@ a.active {
 
     .cus-header {
         margin: 15px 0;
-        font-size: 20px;}
+        font-size: 20px;
+        position: relative;
+        z-index: 2000;
+    }
         .intro-logo {
         margin-top: 40%;
     }

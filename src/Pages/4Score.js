@@ -124,7 +124,7 @@ const Score = () => {
           <div className="score-area">
             {/* style={{ background: `${color}` }} */}
             <img alt="logo" className="img-user" src={demo_img} />
-            <h3 className="text-unselect"> Hie Player </h3>
+            <h3 className="text-unselect"> Hi Player </h3>
             <p className="text-unselect"> Congratulations on your new score!</p>
             <div className="user-score">
               <div className="blue-bg text-unselect">

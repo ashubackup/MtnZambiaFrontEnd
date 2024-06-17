@@ -32,7 +32,7 @@ const Faq = () => {
      let request={"type":"faq","serviceId":serviceId};
      let promise=Post(sendTermsApi,request);
      promise.then(e=>{
-        console.log("e--- ",e);
+        // console.log("e--- ",e);
        handleResponse(e);
      })
    }
@@ -89,7 +89,7 @@ const Faq = () => {
         <div className="cus-header">
           <div className="col-md-6 col-xs-6">
             <div className="page-icon">
-              <img alt="logo" src={score_icon} /> FAQ
+              {/* <img alt="logo" src={score_icon} /> FAQ */}
             </div>
           </div>
           <div className="col-md-6 col-xs-6">
@@ -109,7 +109,7 @@ const Faq = () => {
             >
               {/* style={{color:`${color}`,backgroundColor:`${colorTwo}`}} */}
             {" "}
-            FAQ
+            Frequently Asked Questions
           </span>
 
           <div className="my-terms-div">
