@@ -3,7 +3,10 @@
     /* / padding: 2rem; / */
     /* / position: absolute; / */
     position: absolute;
-    top: 3rem;
+    top: 7rem;
+    /* top:40%; */
+    /* left: 50%; */
+    /* transform: translate(-50%,-40%); */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -261,4 +264,16 @@
  .radio{
     width: 15px;
     height: 15px;
+ }
+
+ @media screen and (max-height:650px){
+    .footer_container{
+        position: absolute;
+         bottom:-8.5rem;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         z-index: 99;
+     }
  }

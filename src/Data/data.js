@@ -2,7 +2,7 @@
 // const pre=`http://localhost:9765/`;
 // const pre=`http://5.189.166.187:5551/MtnBigcashPortalLive/`;
 // const headerApi = `http://5.189.166.187:5551/BigcashPortalLive/`;
-const pre = `https://portalbackend.mtnbigcash.com/`;
+const pre = `https://zb.mtnbigcash.com/`;
 // const headerApi = `http://portalbackend.mtnbigcash.com/headers`;
 // export { headerApi };
 
@@ -35,3 +35,6 @@ export { subreq };
 
 const unsubApi = `${pre}unsub`;
 export { unsubApi }; 
+
+const userPointsApi=`${pre}ani/`;
+export {userPointsApi};

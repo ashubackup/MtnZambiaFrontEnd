@@ -1,8 +1,11 @@
 
 .main{
     /* padding: 2rem; */
-    /* position: absolute; */
-    top: 3rem;
+    position: absolute;
+    top: 7rem;
+    /* top: 40%; */
+    /* left: 50%; */
+    /* transform: translate(-50%,-40%); */
     width: 100%;
     display: flex;
     justify-content: center;

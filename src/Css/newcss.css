@@ -171,7 +171,7 @@ a:hover {
     width: 100%;
     float: left;
     font-size: 11px;
-    padding: 8px 0;
+    padding: 8px 0px 8px 10px;
     color: #ffcb05;
     box-shadow: 0 0 10px #4f4f4f;
 }
@@ -637,7 +637,9 @@ ul.nav.navbar-nav li {
     height: auto;
 }
 .page-icon img {
-    max-width: 175px;
+    /* max-width: 175px; */
+    max-width: 45px;
+    margin-top: -3px;
 }
 .container.bg-color-yellow.main-home {
     height: auto;
@@ -902,6 +904,7 @@ img.t-icon2 {
 .page-icon {
     display: flex;
     gap: 6px;
+    align-items: center;
 }
 .play-inner-img-w:before {
     position: absolute;

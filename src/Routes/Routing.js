@@ -23,6 +23,7 @@ import NotifyPage from "../NewPage/NotifyPage.js";
 import Header from "../Pages/Header.js";
 import Auth from "../NewComponentCSS/Auth.js";
 import UnSubSuccessPage from "../NewPage/UnSubSuccessPage.js";
+import LeaderboardNew from "../Pages/LeaderboardNew.js";
 
 const Routing = () => {
   return (
@@ -54,7 +55,7 @@ const Routing = () => {
             path="/leader"
             element={
               <Auth>
-                <Leaderboard />
+                <LeaderboardNew />
               </Auth>
             }
             exact={true}
@@ -134,7 +135,11 @@ const Routing = () => {
           <Route path="/welcome" element={<Welcome />} exact={true} />
           <Route path="/notify" element={<NotifyPage />} exact={true} />
           <Route path="/headers" element={<Header />} exact={true} />
-          <Route path="/unsubscribe/success" element={<UnSubSuccessPage />}exact={true}/>
+          <Route
+            path="/unsubscribe/success"
+            element={<UnSubSuccessPage />}
+            exact={true}
+          />
         </Routes>
       </BrowserRouter>
     </>

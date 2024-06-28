@@ -8,6 +8,7 @@ import Menu from "../Components/Menu";
 import { sendScoreApi } from "../Data/data";
 import Post from "../Api/Post";
 import "../Css/newcss.css";
+import { Link } from "react-router-dom";
 
 const Score = () => {
   //To Load on start
@@ -152,7 +153,14 @@ const Score = () => {
             </div>
           </div>
           <div className="cus-score-btn-blue">
-            <a href="#">Continue Playing</a>
+          <Link
+                to="/homepage"
+                style={{ textDecoration: "none" }}
+                className="cus-score-btn-blue-span"
+              >
+                {/* style={{ color: `${color}`, backgroundColor: `${colorTwo}` }} */}{" "}
+                Continue Playing
+              </Link>
           </div>
           <Footer
             one="inactive"
